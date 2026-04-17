@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="2026 雲嘉南感恩系列活動「溫馨五月天・善行在人間」。5/3(日) 於嘉義市中央廣場舉辦，免費入場不需報名。" />
+  <meta property="og:title" content="溫馨五月天・善行在人間" />
+  <meta property="og:description" content="2026 / 5 / 3（日）嘉義市中央廣場・免費入場・不需報名" />
+  <meta property="og:image" content="https://socialimpactlab0.github.io/warming-may-fair/poster.jpg" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://socialimpactlab0.github.io/warming-may-fair/" />
+  <title>溫馨五月天・善行在人間</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;700;900&family=Noto+Sans+TC:wght@300;400;500&display=swap');
+
+    *, *::before, *::after { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; scroll-padding-top: 64px; }
+
+    body {
+      margin: 0;
+      background: #f9f6f0;
+      color: #2c2620;
+      font-family: 'Noto Sans TC', sans-serif;
+      font-weight: 300;
+      line-height: 1.8;
+    }
+
+    .serif { font-family: 'Noto Serif TC', serif; }
+
+    /* ── Header ── */
+    header {
+      position: sticky; top: 0; z-index: 50;
+      background: rgba(249,246,240,0.94);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid #e8dfd0;
+    }
+
+    /* ── Hero ── */
+    .hero {
+      min-height: 100svh;
+      display: grid;
+      grid-template-columns: 1fr;
+      background: #f9f6f0;
+      position: relative;
+      overflow: hidden;
+    }
+    @media (min-width: 768px) {
+      .hero { grid-template-columns: 1fr 1fr; min-height: 100vh; }
+    }
+
+    .hero-left {
+      display: flex; flex-direction: column; justify-content: center;
+      padding: 5rem 3rem 5rem 5vw;
+    }
+    @media (max-width: 767px) {
+      .hero-left { padding: 5rem 1.5rem 2rem; }
+    }
+
+    .hero-right {
+      position: relative; overflow: hidden;
+      background: #ede4d4;
+    }
+    .hero-right img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+    }
+    @media (max-width: 767px) {
+      .hero-right { height: 55vw; min-height: 260px; }
+    }
+
+    /* 細線裝飾 */
+    .thin-line {
+      display: block;
+      width: 32px; height: 1px;
+      background: #c8a050;
+      margin-bottom: 1.5rem;
+    }
+
+    /* 主標題 */
+    .hero-title {
+      font-family: 'Noto Serif TC', serif;
+      font-size: clamp(2.8rem, 7vw, 5.5rem);
+      font-weight: 900;
+      line-height: 1.15;
+      letter-spacing: -0.01em;
+      color: #1e1a14;
+      margin: 0 0 1.5rem;
+    }
+    .hero-title em {
+      font-style: normal;
+      color: #b87820;
+    }
+
+    .hero-sub {
+      font-size: 1rem;
+      color: #6b5e4e;
+      font-weight: 300;
+      line-height: 1.9;
+      margin-bottom: 2rem;
+      max-width: 28rem;
+    }
+
+    .hero-meta {
+      display: flex; flex-direction: column; gap: 0.5rem;
+      font-size: 0.9rem; font-weight: 400; color: #5a4e3e;
+      margin-bottom: 2.5rem;
+    }
+    .hero-meta span { display: flex; align-items: center; gap: 0.5rem; }
+    .meta-dot {
+      width: 5px; height: 5px; border-radius: 50%;
+      background: #c8a050; flex-shrink: 0;
+    }
+
+    /* ── Buttons ── */
+    .btn-primary {
+      display: inline-block;
+      background: #2c2620;
+      color: #f9f6f0;
+      font-family: 'Noto Sans TC', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      padding: 13px 32px;
+      border: none; cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+      text-decoration: none;
+    }
+    .btn-primary:hover { background: #b87820; transform: translateY(-1px); }
+
+    .btn-ghost {
+      display: inline-block;
+      color: #5a4e3e;
+      font-size: 0.82rem;
+      font-weight: 400;
+      letter-spacing: 0.06em;
+      border-bottom: 1px solid #c8a050;
+      padding-bottom: 1px;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .btn-ghost:hover { color: #b87820; }
+
+    /* ── Section base ── */
+    .section { padding: 6rem 0; }
+    .section-inner { max-width: 960px; margin: 0 auto; padding: 0 1.5rem; }
+
+    .eyebrow {
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      color: #c8a050;
+      text-transform: uppercase;
+      display: block;
+      margin-bottom: 1rem;
+    }
+
+    .section-title {
+      font-family: 'Noto Serif TC', serif;
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 900;
+      line-height: 1.3;
+      color: #1e1a14;
+      margin: 0 0 3rem;
+    }
+
+    /* ── 大數字統計 ── */
+    .stat-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border: 1px solid #e0d4c0;
+    }
+    .stat-item {
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+      border-right: 1px solid #e0d4c0;
+    }
+    .stat-item:last-child { border-right: none; }
+    .stat-num {
+      font-family: 'Noto Serif TC', serif;
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 900;
+      color: #b87820;
+      line-height: 1;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+    .stat-label { font-size: 0.8rem; color: #6b5e4e; letter-spacing: 0.05em; }
+
+    /* ── 亮點 grid ── */
+    .highlights-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0;
+      border: 1px solid #e0d4c0;
+    }
+    @media (min-width: 640px) {
+      .highlights-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (min-width: 900px) {
+      .highlights-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+
+    .hl-item {
+      padding: 2rem 1.8rem;
+      border-bottom: 1px solid #e0d4c0;
+      border-right: 1px solid #e0d4c0;
+      transition: background 0.2s;
+    }
+    .hl-item:hover { background: #f3ede0; }
+    .hl-num {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 0.7rem;
+      color: #c8a050;
+      letter-spacing: 0.15em;
+      display: block;
+      margin-bottom: 0.8rem;
+    }
+    .hl-title {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: #1e1a14;
+      margin: 0 0 0.5rem;
+    }
+    .hl-desc { font-size: 0.82rem; color: #6b5e4e; line-height: 1.8; margin: 0; }
+
+    /* ── 好禮區 ── */
+    .gifts-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1px;
+      background: #e0d4c0;
+      border: 1px solid #e0d4c0;
+    }
+    @media (min-width: 640px) {
+      .gifts-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    .gift-item {
+      background: #f9f6f0;
+      padding: 2.5rem 2rem;
+      text-align: center;
+    }
+    .gift-icon { font-size: 2rem; display: block; margin-bottom: 1rem; }
+    .gift-title {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 1rem; font-weight: 700;
+      color: #1e1a14; margin: 0 0 0.6rem;
+    }
+    .gift-desc { font-size: 0.82rem; color: #6b5e4e; line-height: 1.8; margin: 0; }
+    .gift-num { font-weight: 700; color: #b87820; }
+
+    .gift-notice {
+      margin-top: 1.5rem;
+      padding: 1rem 1.5rem;
+      border: 1px solid #e0d4c0;
+      text-align: center;
+      font-size: 0.82rem;
+      color: #6b5e4e;
+    }
+    .gift-notice strong { color: #b87820; }
+
+    /* ── 資訊區 ── */
+    .info-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+    @media (min-width: 768px) {
+      .info-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    .info-panel {
+      background: #f3ede0;
+      padding: 2.5rem;
+    }
+    .info-row {
+      display: flex; gap: 1rem;
+      padding: 0.9rem 0;
+      border-bottom: 1px solid #e0d4c0;
+      font-size: 0.88rem;
+      color: #3a3020;
+    }
+    .info-row:last-child { border-bottom: none; }
+    .info-key { font-weight: 700; color: #1e1a14; min-width: 2.5rem; flex-shrink: 0; }
+    .info-val { color: #5a4e3e; }
+    .info-val.gold { color: #b87820; font-weight: 700; }
+
+    .map-wrap {
+      overflow: hidden;
+      border: 1px solid #e0d4c0;
+      min-height: 280px;
+    }
+
+    .notice-grid {
+      margin-top: 1.5rem;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0;
+      border: 1px solid #e0d4c0;
+    }
+    @media (min-width: 640px) {
+      .notice-grid { grid-template-columns: 1fr 1fr; }
+    }
+    .notice-item {
+      padding: 1rem 1.5rem;
+      font-size: 0.82rem;
+      color: #5a4e3e;
+      border-bottom: 1px solid #e0d4c0;
+      display: flex; gap: 0.75rem; align-items: flex-start;
+    }
+
+    /* ── CTA ── */
+    .cta-section {
+      background: #1e1a14;
+      padding: 6rem 1.5rem;
+      text-align: center;
+    }
+    .cta-label { font-size: 0.72rem; letter-spacing: 0.22em; color: #c8a050; display: block; margin-bottom: 1.5rem; }
+    .cta-title {
+      font-family: 'Noto Serif TC', serif;
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      font-weight: 900;
+      color: #f9f6f0;
+      margin: 0 0 1.5rem;
+      line-height: 1.3;
+    }
+    .cta-sub { font-size: 0.9rem; color: #9a8e7e; margin-bottom: 2.5rem; line-height: 1.9; }
+    .btn-primary-inv {
+      display: inline-block;
+      background: #c8a050;
+      color: #1e1a14;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      padding: 14px 36px;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .btn-primary-inv:hover { background: #e8b860; transform: translateY(-1px); }
+
+    /* ── Organizer ── */
+    .org-section {
+      background: #f0e8d8;
+      padding: 3rem 1.5rem;
+    }
+    .org-grid {
+      max-width: 960px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+    @media (max-width: 480px) { .org-grid { grid-template-columns: 1fr; } }
+    .org-label { font-size: 0.72rem; letter-spacing: 0.15em; color: #c8a050; margin-bottom: 0.4rem; display: block; }
+    .org-name { font-size: 0.88rem; color: #3a3020; }
+
+    /* ── Footer ── */
+    footer {
+      background: #1e1a14;
+      padding: 1.5rem;
+      display: flex; flex-wrap: wrap;
+      justify-content: space-between; align-items: center; gap: 1rem;
+    }
+    .footer-copy { font-size: 0.72rem; color: #5a5040; }
+    .footer-nav { display: flex; gap: 1.5rem; }
+    .footer-nav a { font-size: 0.72rem; color: #5a5040; text-decoration: none; transition: color 0.2s; }
+    .footer-nav a:hover { color: #c8a050; }
+
+    /* scrollbar */
+    .no-sb::-webkit-scrollbar { display: none; }
+    .no-sb { -ms-overflow-style: none; scrollbar-width: none; }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div style="max-width:960px; margin:0 auto; padding:0 1.5rem; display:flex; align-items:center; justify-content:space-between; height:64px;">
+      <a href="#" style="text-decoration:none;">
+        <span style="font-size:0.68rem; letter-spacing:0.18em; color:#c8a050; display:block;">2026 雲嘉南 感恩系列活動</span>
+        <span class="serif" style="font-size:0.88rem; font-weight:900; color:#1e1a14;">溫馨五月天・善行在人間</span>
+      </a>
+      <nav style="display:flex; gap:2rem; align-items:center;">
+        <a href="#highlights" style="font-size:0.8rem; color:#5a4e3e; text-decoration:none; display:none;" class="md-show">活動亮點</a>
+        <a href="#gifts" style="font-size:0.8rem; color:#5a4e3e; text-decoration:none; display:none;" class="md-show">好禮帶回家</a>
+        <a href="#location" style="font-size:0.8rem; color:#5a4e3e; text-decoration:none; display:none;" class="md-show">活動資訊</a>
+        <a href="#location" class="btn-primary" style="padding:9px 20px; font-size:0.78rem;">免費參加</a>
+      </nav>
+    </div>
+  </header>
+
+  <style>
+    @media (min-width: 768px) { .md-show { display: inline !important; } }
+  </style>
+
+  <main>
+
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero-left">
+        <span class="thin-line"></span>
+        <h1 class="hero-title serif">
+          溫馨五月天<br />
+          <em>善行在人間</em>
+        </h1>
+        <p class="hero-sub">
+          帶著家人，一起走進真實溫暖的早晨。<br />
+          有互動、有好禮，也有一段簡單的相聚時光。
+        </p>
+        <div class="hero-meta">
+          <span><span class="meta-dot"></span>2026 年 5 月 3 日（星期日）</span>
+          <span><span class="meta-dot"></span>09:00 – 13:00</span>
+          <span><span class="meta-dot"></span>嘉義市中央廣場</span>
+        </div>
+        <div style="display:flex; align-items:center; gap:1.5rem; flex-wrap:wrap;">
+          <a href="#location" class="btn-primary">免費參加</a>
+          <a href="#highlights" class="btn-ghost">了解活動內容</a>
+        </div>
+        <p style="margin-top:1rem; font-size:0.75rem; color:#9a8e7e;">免費入場・不需報名・直接來就可以</p>
+      </div>
+      <div class="hero-right">
+        <img src="./poster.jpg" alt="溫馨五月天善行在人間活動海報" loading="lazy" decoding="async" />
+      </div>
+    </section>
+
+    <!-- 數字統計 -->
+    <div class="section-inner" style="padding-top:4rem; padding-bottom:4rem;">
+      <div class="stat-grid">
+        <div class="stat-item">
+          <span class="stat-num">400<span style="font-size:1.2rem;">份</span></span>
+          <span class="stat-label">手作麻糬・限量</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num">400<span style="font-size:1.2rem;">份</span></span>
+          <span class="stat-label">康乃馨・限量</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num">4<span style="font-size:1.2rem;">小時</span></span>
+          <span class="stat-label">精彩活動時段</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 活動亮點 -->
+    <section class="section" id="highlights" style="padding-top:2rem;">
+      <div class="section-inner">
+        <span class="eyebrow">活動亮點</span>
+        <h2 class="section-title serif">六個理由，<br />讓這個週日值得出門</h2>
+        <div class="highlights-grid">
+          <div class="hl-item">
+            <span class="hl-num">01</span>
+            <h3 class="hl-title">智慧闖關體驗</h3>
+            <p class="hl-desc">邊玩邊認識優質媒體與乾淨網路平台，讓孩子玩得開心，大人也更安心。</p>
+          </div>
+          <div class="hl-item">
+            <span class="hl-num">02</span>
+            <h3 class="hl-title">舞台節目表演</h3>
+            <p class="hl-desc">現場有溫暖又輕鬆的舞台表演，適合全家一起停下腳步欣賞。</p>
+          </div>
+          <div class="hl-item">
+            <span class="hl-num">03</span>
+            <h3 class="hl-title">職人美食</h3>
+            <p class="hl-desc">精選美食攤位，讓你邊逛邊吃，把週末的好心情一起帶走。</p>
+          </div>
+          <div class="hl-item">
+            <span class="hl-num">04</span>
+            <h3 class="hl-title">手作與特色攤位</h3>
+            <p class="hl-desc">有趣的手作體驗與特色攤位，孩子有得玩，大人也能悠閒逛逛。</p>
+          </div>
+          <div class="hl-item">
+            <span class="hl-num">05</span>
+            <h3 class="hl-title">摸彩與驚喜好禮</h3>
+            <p class="hl-desc">到場送摸彩券，完成闖關再送好禮，現場還有不定時驚喜。</p>
+          </div>
+          <div class="hl-item">
+            <span class="hl-num">06</span>
+            <h3 class="hl-title">親子遊戲互動</h3>
+            <p class="hl-desc">讓孩子放電，也讓一家人一起參與互動，留下更有記憶點的週末時光。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 好禮帶回家 -->
+    <section class="section" id="gifts" style="background:#f3ede0; padding-top:4rem; padding-bottom:4rem;">
+      <div class="section-inner">
+        <span class="eyebrow">好禮帶回家</span>
+        <h2 class="section-title serif">來了，就有驚喜<br />帶回家</h2>
+        <div class="gifts-grid">
+          <div class="gift-item">
+            <span class="gift-icon">🎁</span>
+            <h3 class="gift-title">到場即送摸彩券</h3>
+            <p class="gift-desc">到場就能領取，活動期間不定時抽出幸運得主，需在場才有機會。</p>
+          </div>
+          <div class="gift-item">
+            <span class="gift-icon">🎯</span>
+            <h3 class="gift-title">闖關再送好禮</h3>
+            <p class="gift-desc">完成闖關任務，再把限定小禮物帶回家，孩子更有參與感。</p>
+          </div>
+          <div class="gift-item">
+            <span class="gift-icon">🌸</span>
+            <h3 class="gift-title">現場限量準備</h3>
+            <p class="gift-desc">
+              手作麻糬 <span class="gift-num">400 份</span><br />
+              康乃馨 <span class="gift-num">400 份</span>
+            </p>
+          </div>
+        </div>
+        <div class="gift-notice">
+          <strong>數量有限，熱門時段可能提早送完</strong>　建議提早到場，別錯過！
+        </div>
+      </div>
+    </section>
+
+    <!-- 活動資訊 -->
+    <section class="section" id="location">
+      <div class="section-inner">
+        <span class="eyebrow">活動資訊</span>
+        <h2 class="section-title serif">這個週日<br />歡迎全家一起來走走</h2>
+        <div class="info-grid">
+          <div class="info-panel">
+            <div class="info-row">
+              <span class="info-key">日期</span>
+              <span class="info-val">2026 年 5 月 3 日（星期日）</span>
+            </div>
+            <div class="info-row">
+              <span class="info-key">時間</span>
+              <span class="info-val">上午 9 點至下午 1 點</span>
+            </div>
+            <div class="info-row">
+              <span class="info-key">地點</span>
+              <span class="info-val">嘉義市中央廣場</span>
+            </div>
+            <div class="info-row">
+              <span class="info-key">地址</span>
+              <span class="info-val">嘉義市民權路 371 號</span>
+            </div>
+            <div class="info-row">
+              <span class="info-key">入場</span>
+              <span class="info-val gold">免費・不需報名・直接來</span>
+            </div>
+            <div style="margin-top:2rem;">
+              <a href="https://www.google.com/maps?q=23.481286,120.449533"
+                 target="_blank" rel="noreferrer" class="btn-primary">
+                點我導航到活動地點
+              </a>
+            </div>
+          </div>
+          <div class="map-wrap">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d460.5!2d120.449533!3d23.481286!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346e7763b3fcc6b1%3A0x7c1e7b8d5a9f1234!2z5ZyL5aSu5bqX5Zyf5Lqk5puy!5e0!3m2!1szh-TW!2stw!4v1"
+              width="100%" height="100%" style="border:0; min-height:280px; display:block;"
+              allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+          </div>
+        </div>
+        <div class="notice-grid">
+          <div class="notice-item">🎟 <span><strong style="color:#1e1a14;">免費入場，不需報名</strong>，直接來就可以。</span></div>
+          <div class="notice-item">⏰ <span>建議提早到場，熱門時段限量好禮可能提早送完。</span></div>
+          <div class="notice-item">🎉 <span>活動期間不定時抽出幸運得主，需在場才有機會。</span></div>
+          <div class="notice-item">👨‍👩‍👧‍👦 <span>活動適合親子、長輩與一般民眾一同參與。</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+      <span class="cta-label">JOIN US</span>
+      <h2 class="cta-title serif">把一段溫暖時光<br />留給家人</h2>
+      <p class="cta-sub">
+        有互動、有好禮，也有一個適合全家一起出門的理由。<br />
+        歡迎直接來參加。
+      </p>
+      <a href="https://www.google.com/maps?q=23.481286,120.449533"
+         target="_blank" rel="noreferrer" class="btn-primary-inv">
+        立即導航前往
+      </a>
+      <p style="margin-top:1.2rem; font-size:0.75rem; color:#5a5040;">免費入場・不需報名・建議提早到場</p>
+    </section>
+
+    <!-- 主辦資訊 -->
+    <section class="org-section">
+      <div class="org-grid">
+        <div>
+          <span class="org-label">主辦單位</span>
+          <p class="org-name">台灣自媒體應用科技學會</p>
+          <span class="org-label" style="margin-top:1.2rem; display:block;">合辦單位</span>
+          <p class="org-name">台灣法輪大法學會</p>
+        </div>
+        <div>
+          <span class="org-label">聯絡方式</span>
+          <p class="org-name">電話：<a href="tel:0912745635" style="color:#3a3020; text-decoration:none;">0912-745635</a></p>
+          <p class="org-name">聯絡人：徐小姐</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span class="footer-copy">© 2026 溫馨五月天・善行在人間</span>
+    <nav class="footer-nav">
+      <a href="#highlights">活動亮點</a>
+      <a href="#gifts">好禮帶回家</a>
+      <a href="#location">活動資訊</a>
+    </nav>
+  </footer>
+
+</body>
+</html>
